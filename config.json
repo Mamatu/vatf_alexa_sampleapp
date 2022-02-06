@@ -1,0 +1,36 @@
+{
+  "assets" : {
+    "audio" : {
+      "path":"./assets/audio_files",
+      "files":[
+      {
+        "name": "alexa_are_you_there.wav",
+        "tags":[
+          "verification"
+        ]
+      },
+      {
+        "name":"alexa_tell_me_a_joke.wav",
+        "tags":[
+          "joke"
+        ]
+      }]
+    }
+  },
+  "va_log": {
+    "path" : "/tmp/alexa_sampleapp.log",
+    "timedelta" : {
+      "hours" : -1
+    }
+  },
+  "utterance_from_va" : {
+    "regexes" : [
+      {
+        "begin" : "DialogUXStateAggregator:executeSetState:from=THINKING,to=SPEAKING,validTransition=true",
+        "end" : "DialogUXStateAggregator:executeSetState:from=SPEAKING,to=IDLE,validTransition=true"
+      }
+    ]
+  },
+  "tools" : {
+  }
+}
