@@ -1,7 +1,0 @@
-[submodule "vatf_generator"]
-	path = vatf_generator
-	url = https://github.com/Mamatu/vatf_generator.git
-  branch = issues/8
-[submodule "vatf_utils"]
-	path = vatf_utils
-	url = https://github.com/Mamatu/vatf_utils.git
