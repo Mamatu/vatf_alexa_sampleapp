@@ -1,0 +1,3 @@
+[submodule "vatf"]
+	path = vatf
+	url = https://github.com/Mamatu/vatf
