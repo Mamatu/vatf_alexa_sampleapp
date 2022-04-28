@@ -1,5 +1,5 @@
 from vatf.generator import gen_tests
-from vatf import api
+from vatf import player, sleep, shell
 
 import logging
 import sys
@@ -20,7 +20,9 @@ recording_sink = "bluez_sink.F8_4B_3A_9E_8E_14.a2dp_sink.monitor.pcm"
 #    return config
 
 def Test_One_Question():
-    api.play_audio("alexa_are_you_there.wav")
+    shell.command("echo 't' > /tmp/alexa_input.pipe")
+    player.play_audio("alexa_are_you_there.wav")
+    sleep.sleep(5)
 
 #def Test_Two_Questions():
 #    ctx.CleanupTrap()
