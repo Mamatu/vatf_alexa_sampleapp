@@ -1,4 +1,7 @@
 {
+  "vatf": {
+    "branch" : "develop_20220429"
+  },
   "assets" : {
     "audio" : {
       "path":"./assets/audio_files",
