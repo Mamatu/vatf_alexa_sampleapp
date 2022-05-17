@@ -1,3 +1,4 @@
+from vatf import vatf_init
 from vatf.generator import gen_tests
 from vatf.api import audio, player, wait, shell
 
