@@ -1,4 +1,7 @@
 {
+  "vatf": {
+    "branch" : "master"
+  },
   "assets" : {
     "audio" : {
       "path":"./assets/audio_files",
@@ -21,7 +24,9 @@
     "path" : "/tmp/alexa_sampleapp.log",
     "timedelta" : {
       "hours" : -1
-    }
+    },
+    "date_format" : "%Y-%m-%d %H:%M:%S.%f",
+    "date_regex" : "[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9].[0-9][0-9][0-9]"
   },
   "utterance_from_va" : {
     "regexes" : [
