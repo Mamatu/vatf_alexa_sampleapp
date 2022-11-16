@@ -1,6 +1,10 @@
 from vatf import vatf_init
 from vatf.generator import gen_tests
 from vatf.api import audio, player, wait, shell
+from vatf.utils import config_handler
+
+def setup_function():
+    config_handler.init_configs(["./config.json"])
 
 def test_one_question():
     audio.record_inputs_outputs()
