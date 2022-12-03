@@ -1,6 +1,6 @@
 {
   "vatf": {
-    "branch" : "develop_20220704"
+    "branch" : "develop_20220815"
   },
   "assets" : {
     "audio" : {
@@ -28,6 +28,11 @@
     "date_format" : "%Y-%m-%d %H:%M:%S.%f",
     "date_regex" : "[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9].[0-9][0-9][0-9]"
   },
+  "wait_for_regex" : {
+    "path" : "/tmp/alexa_sampleapp.log",
+    "date_format" : "%Y-%m-%d %H:%M:%S.%f",
+    "date_regex" : "[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9].[0-9][0-9][0-9]"
+  },
   "utterance_from_va" : {
     "regexes" : [
       {
@@ -35,7 +40,5 @@
         "end" : "DialogUXStateAggregator:executeSetState:from=SPEAKING,to=IDLE,validTransition=true"
       }
     ]
-  },
-  "tools" : {
   }
 }
