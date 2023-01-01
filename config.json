@@ -25,6 +25,7 @@
   },
   "va_log": {
     "path" : "{data_root}/session_{config_loading_time}/log/session.log",
+    "in_path" : "/tmp/alexa_sampleapp.log",
     "timedelta" : {
       "hours" : -1
     },
