@@ -16,7 +16,7 @@ def teardown_function():
 def test_1():
     shell.fg("echo 't' > /tmp/alexa_input.pipe")
     player.play_audio("alexa_are_you_there.wav")
-    wait.sleep(5)
+    wait.wait_for_regex(regex = ".*DialogUXStateAggregator:executeSetState:from=SPEAKING,to=IDLE,validTransition=true.*", timeout = 600, pause = 0.5)
 
 def test_2():
     shell.fg("echo 't' > /tmp/alexa_input.pipe")
