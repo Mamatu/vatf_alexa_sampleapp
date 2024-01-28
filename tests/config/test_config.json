@@ -1,0 +1,64 @@
+{
+  "vatf": {
+    "branch" : "develop_20220815"
+  },
+  "assets" : {
+    "audio" : {
+      "path":"/home/assets/audio_files",
+      "files":[
+      {
+        "name": "alexa_are_you_there.wav",
+        "tags":[
+          "verification"
+        ]
+      },
+      {
+        "name":"alexa_tell_me_a_joke.wav",
+        "tags":[
+          "joke"
+        ]
+      }]
+    }
+  },
+  "audio" : {
+    "path" : "{data_root}/session_{config_loading_time}/audio"
+  },
+  "va_log": {
+    "path" : "{data_root}/session_{config_loading_time}/log/session.log",
+    "in_path" : "/tmp/alexa_sampleapp.log",
+    "date_format" : "%Y-%m-%d %H:%M:%S.%f",
+    "date_regex" : "^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9].[0-9][0-9][0-9]"
+  },
+  "wait_for_regex" : {
+    "path" : "{data_root}/session_{config_loading_time}/log/session.log",
+    "date_format" : "%Y-%m-%d %H:%M:%S.%f",
+    "date_regex" : "^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9].[0-9][0-9][0-9]"
+  },
+  "utterance_from_va" : {
+    "regexes" : [
+      {
+        "begin" : "DialogUXStateAggregator:executeSetState:from=THINKING,to=SPEAKING,validTransition=true",
+        "end" : "DialogUXStateAggregator:executeSetState:from=SPEAKING,to=IDLE,validTransition=true"
+      }
+    ]
+  },
+  "tools" : {
+    "pathes" : ["{data_root}/", "{data_root}/session_{config_loading_time}/"]
+  },
+  "sampling" : {
+    "path_to_log": "{data_root}/session_{config_loading_time}/log/session.log",
+    "path_to_tools": "{data_root}/session_{config_loading_time}/tools",
+    "path_to_recording": "{data_root}/session_{config_loading_time}/audio/alsa_output.usb-Plantronics_Poly_Blackwire_3320_Series_366E1EDDB08C45B99F24B85B01DF8430-00.analog-stereo.monitor.pcm.ogg",
+    "path_to_samples": "{data_root}/session_{config_loading_time}/samples",
+    "path_to_recording_date": "{data_root}/session_{config_loading_time}/audio/alsa_output.usb-Plantronics_Poly_Blackwire_3320_Series_366E1EDDB08C45B99F24B85B01DF8430-00.analog-stereo.monitor.pcm.date",
+    "timestamp_format" : "%Y-%m-%d %H:%M:%S.%f",
+    "timestamp_regex" : "^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9].[0-9][0-9][0-9]",
+    "regexes" : {
+      "begin" : "DialogUXStateAggregator:executeSetState:from=THINKING,to=SPEAKING,validTransition=true",
+      "end" : "DialogUXStateAggregator:executeSetState:from=SPEAKING,to=IDLE,validTransition=true"
+    }
+  },
+  "format" : {
+    "data_root" : "/tmp/data"
+  }
+}
