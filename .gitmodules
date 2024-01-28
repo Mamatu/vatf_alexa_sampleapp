@@ -1,4 +1,4 @@
 [submodule "vatf"]
   path = vatf
   url = https://github.com/Mamatu/vatf
-  branch = master
+  branch = develop_master_v1.0_libtools
