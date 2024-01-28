@@ -1,7 +1,7 @@
 #!/bin/bash
 trap "bash cleanup_sample_app.sh" err exit
 
-BUILD_DIR=/home/sdk-folder/sdk-build
+BUILD_DIR=$HOME/sdk-folder/sdk-build
 mkfifo /tmp/alexa_input.pipe
 
 sleep infinity > /tmp/alexa_input.pipe &
