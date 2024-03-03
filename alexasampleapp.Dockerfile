@@ -2,11 +2,13 @@ FROM ubuntu:focal
 ARG jobs=4
 WORKDIR /home
 COPY sampleapp/bin/ /home/bin
+COPY python.sh /home/python.sh
+COPY pytest.sh /home/pytest.sh
 RUN mkdir -p sdk-folder && cd sdk-folder && mkdir -p sdk-build sdk-source sdk-install db \
 && cd /home \
 && apt-get update && apt-get upgrade -y && DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install tzdata apt-utils git \
-&& cd /home && git clone -b master_v1.0 https://github.com/Mamatu/vatf.git \
-#&& cd /home && git clone -b develop_20231130 https://github.com/Mamatu/vatf.git \
+#&& cd /home && git clone -b master_v1.0 https://github.com/Mamatu/vatf.git \
+&& cd /home && git clone -b develop_20231130 https://github.com/Mamatu/vatf.git \
 #&& cd /home/vatf \
 #&& git submodule update --init --remote --force \
 && cd /home \
@@ -29,21 +31,21 @@ RUN mkdir -p sdk-folder && cd sdk-folder && mkdir -p sdk-build sdk-source sdk-in
     -DPORTAUDIO_LIB_PATH=$PORTAUDIO_LIB_PATH \
     -DPORTAUDIO_INCLUDE_DIR=/usr/include \
     -DCMAKE_BUILD_TYPE=DEBUG && make SampleApp -j8
-COPY config.json /home/sdk-folder/sdk-source/avs-device-sdk/tools/Install/config.json
+COPY sampleapp/config.json /home/sdk-folder/sdk-source/avs-device-sdk/tools/Install/config.json
 COPY tests /home/tests
 COPY assets /home/assets
 # +from https://github.com/TheBiggerGuy/docker-pulseaudio-example/blob/master/Dockerfile
-#ENV UNAME pacat
-#RUN export UNAME=$UNAME UID=1000 GID=1000 && \
-#    mkdir -p "/home/${UNAME}" && \
-#    echo "${UNAME}:x:${UID}:${GID}:${UNAME} User,,,:/home/${UNAME}:/bin/bash" >> /etc/passwd && \
-#    echo "${UNAME}:x:${UID}:" >> /etc/group && \
-#    mkdir -p /etc/sudoers.d && \
-#    echo "${UNAME} ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/${UNAME} && \
-#    chmod 0440 /etc/sudoers.d/${UNAME} && \
-#    chown ${UID}:${GID} -R /home/${UNAME} && \
-#    gpasswd -a ${UNAME} audio
-#COPY pulse-client.conf /etc/pulse/client.conf
+ENV UNAME pacat
+RUN export UNAME=$UNAME UID=1000 GID=1000 && \
+    mkdir -p "/home/${UNAME}" && \
+    echo "${UNAME}:x:${UID}:${GID}:${UNAME} User,,,:/home/${UNAME}:/bin/bash" >> /etc/passwd && \
+    echo "${UNAME}:x:${UID}:" >> /etc/group && \
+    mkdir -p /etc/sudoers.d && \
+    echo "${UNAME} ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/${UNAME} && \
+    chmod 0440 /etc/sudoers.d/${UNAME} && \
+    chown ${UID}:${GID} -R /home/${UNAME} && \
+    gpasswd -a ${UNAME} audio
+COPY pulse-client.conf /etc/pulse/client.conf
 # -from https://github.com/TheBiggerGuy/docker-pulseaudio-example/blob/master/Dockerfile
 RUN . /envfile && ls /home/sdk-folder/sdk-source/avs-device-sdk/tools/Install && cd /home/sdk-folder/sdk-source/avs-device-sdk/tools/Install && bash genConfig.sh \
     config.json \
